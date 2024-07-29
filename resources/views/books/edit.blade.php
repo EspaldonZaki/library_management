@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" />
+</head>
+<body>
+    <div>
+        <div class="container my-5">
+            <div class="d-flex justify-content-end">
+                <a href="{{ url('books') }}" class="btn btn-primary">Book List</a>
+
+            </div>
+            <div class="row">
+                <div class="col-md-6 mx-auto d-grid gap-2">
+                <form action="{{ url('books', $book->id) }}" method="POST">
+        @csrf
+        @method('PUT')
+        <div>
+            <label class="form-group mb-3">Title</label>
+            <input type="text" name="title" class="form-control" value="{{ $book->title }}"/>
+        </div>
+        <div>
+            <label class="form-group mb-3">Author</label>
+            <input type="text" name="author" class="form-control" value="{{ $book->author }}"/>
+        </div>
+        <div>
+            <label class="form-group mb-3">Description</label>
+            <input type="text" name="description" class="form-control" value="{{ $book->description }}"/>
+        </div>
+        <div>
+            <label class="form-group mb-3">ISBN</label>
+            <input type="text" name="isbn" class="form-control" value="{{ $book->isbn }}"/>
+        </div>
+        <div>
+            <label class="form-group mb-3">Published Year</label>
+            <input type="date" name="published_year" class="form-control" value="{{ $book->published_year }}"/>
+        </div>
+        <div>
+            <a href="{{ url('books') }}" class="btn btn-primary">Save Changes</button> </a>
+        </div>
+    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
